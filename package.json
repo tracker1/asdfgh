@@ -1,0 +1,25 @@
+{
+  "name": "asdfgh",
+  "version": "0.0.0",
+  "description": "Asynchronous wrapper around zxcvbn",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tracker1/asdfgh.git"
+  },
+  "keywords": [
+    "zxcvbn",
+    "password",
+    "strenght",
+    "authentication"
+  ],
+  "author": "Michael J. Ryan <tracker1@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tracker1/asdfgh/issues"
+  },
+  "homepage": "https://github.com/tracker1/asdfgh#readme"
+}
