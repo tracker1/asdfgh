@@ -1,5 +1,7 @@
 # asdfgh
 
+[![npm version](https://badge.fury.io/js/asdfgh.svg)](https://badge.fury.io/js/asdfgh)
+
 Asynchronous wrapper for use of zxcvbn in npm
 
 For now, this only works when used in conjunction with tooling like Webpack or Browserify.  It is not build to be used in Node.js directly.
