@@ -1,6 +1,6 @@
 {
   "name": "asdfgh",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "description": "Asynchronous wrapper around zxcvbn",
   "main": "index.js",
   "scripts": {
