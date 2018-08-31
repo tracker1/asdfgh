@@ -4,7 +4,7 @@
 
 Asynchronous wrapper for use of zxcvbn in npm
 
-For now, this only works when used in conjunction with tooling like Webpack or Browserify.  It is not build to be used in Node.js directly.
+Made for use in a browser either directly, or via a Node-style bundler such as Browserify or Webpack.
 
 ## Installation
 
