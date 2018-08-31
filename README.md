@@ -15,15 +15,20 @@ npm i asdfgh
 ## Usage
 
 ```
-import asdfgh from 'asdfgh'
+import asdfgh from 'asdfgh';
 
 // by default loads from cdnjs
 // override with optional setting
 //
 // asdfgh.setDefaults(url, integritySRI, timeoutMS)
+
+
 async function checkPassphrase(pwd) {
   try {
+    // check passphrase
     var result = await asdfgh(pwd);
+
+    // do something with the results
     ...
   } catch(err) {
     ...
