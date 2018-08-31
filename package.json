@@ -1,6 +1,6 @@
 {
   "name": "asdfgh",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Asynchronous wrapper around zxcvbn",
   "main": "index.js",
   "repository": {
