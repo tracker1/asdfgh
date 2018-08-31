@@ -76,4 +76,4 @@ if (module && module.exports) {
   throw new Error("asdfgh: Not in a Node/Browserify/Webpack or browser environment.");
 }
 
-}())
+}());
