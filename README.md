@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/asdfgh.svg)](https://badge.fury.io/js/asdfgh)
 
-Lightweight, asynchronous wrapper for zxcvbn.  asdfgh is about 900 bytes zipped, it will only load zxcvbn (~200kb) when it's actually used.
+Lightweight, asynchronous wrapper for zxcvbn.  asdfgh is about 616 bytes min+gzip, it will only load zxcvbn (~200kb) when it's actually used.
 
 **Made for use in a browser either directly, or via a Node-style bundler such as Browserify or Webpack.**
 

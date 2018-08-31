@@ -3,9 +3,6 @@
   "version": "1.0.1",
   "description": "Asynchronous wrapper around zxcvbn",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tracker1/asdfgh.git"
@@ -13,13 +10,35 @@
   "keywords": [
     "zxcvbn",
     "password",
-    "strenght",
-    "authentication"
+    "passphrase",
+    "security",
+    "authentication",
+    "strength",
+    "meter",
+    "quality",
+    "estimation",
+    "pattern",
+    "cracking",
+    "scoring",
+    "entropy",
+    "bruteforce"
   ],
   "author": "Michael J. Ryan <tracker1@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/tracker1/asdfgh/issues"
   },
-  "homepage": "https://github.com/tracker1/asdfgh#readme"
+  "homepage": "https://github.com/tracker1/asdfgh#readme",
+  "devDependencies": {
+    "uglify-es": "^3.3.9"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf dist",
+    "prebuild": "mkdir -p dist",
+    "build": "cp index.js dist/asdfgh.browser.js",
+    "postbuild": "npm run minify && npm run compress",
+    "minify": "uglifyjs --compress --mangle --source-map --verbose -o dist/asdfgh.browser.min.js dist/asdfgh.browser.js",
+    "compress": "gzip < dist/asdfgh.browser.min.js > dist/asdfgh.browser.min.js.gz"
+  }
 }
