@@ -11,6 +11,9 @@ var loadScriptPromise = null;
 function loadLibrary() {
   if (typeof zxcvbn === "function") return Promise.resolve(zxcvbn);
   if (loadScriptPromise) return loadScriptPromise;
+
+  var c=0;
+  var hnd = null;
   return (loadScriptPromise = new Promise(function(resolve, reject) {
     // create and attach zxcvbn script
     var script = document.createElement("script");
@@ -28,23 +31,22 @@ function loadLibrary() {
     document.getElementsByTagName("head")[0].appendChild(script);
     
     // timeout and fallback for onload/onerror
-    var c = 0;
-    var hnd = setInterval(function(){
+    hnd = setInterval(function(){
       c++;
       if (typeof zxcvbn === 'function') {
-        clearInterval(hnd);
         return resolve(zxcvbn);
       }
       if (c * 100 > loadTimeout) {
-        clearInterval(hnd);
         return reject(new Error('Timeout loading zxcvbn'));
       }
     }, 100);
   }).then(function(zxcvbn) {
     // remove heavy promise wrapper
+    clearInterval(hnd);
     return (loadScriptPromise = Promise.resolve(zxcvbn));
   }, function(error) {
     // when an error happens, clear the saved promise
+    clearInterval(hnd);
     loadScriptPromise = null;
     throw error;
   }));
