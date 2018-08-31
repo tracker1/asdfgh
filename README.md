@@ -17,12 +17,6 @@ npm i asdfgh
 ```
 import asdfgh from 'asdfgh';
 
-// by default loads from cdnjs
-// override with optional setting
-//
-// asdfgh.setDefaults(url, integritySRI, timeoutMS)
-
-
 async function checkPassphrase(pwd) {
   try {
     // check passphrase
@@ -35,6 +29,21 @@ async function checkPassphrase(pwd) {
   }
 }
 
+// must call before any password check
+function changeAsdfghOptions() {
+  // default values used
+
+  // url to load zxcvbn from
+  const url = "https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js";
+
+  // integrity parameter for script element
+  const integritySRI = "sha256-Znf8FdJF85f1LV0JmPOob5qudSrns8pLPZ6qkd/+F0o=";
+
+  // max time to wait for zxcvbn before timing out
+  const timeout = 5000;
+
+  asdfgh.setDefaults(url, integritySRI, timeoutMS);
+}
 ```
 
 ## Interface
@@ -42,7 +51,7 @@ async function checkPassphrase(pwd) {
 * `asdfgh(passphrase, user_inputs)` - exports a function which is a promisified wrapper for zxcvbn
   * arguments: [see zxcvbn](https://github.com/dropbox/zxcvbn)
 * `asdfgh.setDefaults(url, integritySRI, timeoutMS)`
-  * Must be callsed before any passphrase checks are started
+  * Must be called before any passphrase checks are started
   * default:
     * version: 4.4.2
     * from [cdnjs/cloudflare](https://cdnjs.com/libraries/zxcvbn)
