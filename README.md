@@ -2,9 +2,9 @@
 
 [![npm version](https://badge.fury.io/js/asdfgh.svg)](https://badge.fury.io/js/asdfgh)
 
-Asynchronous wrapper for use of zxcvbn in npm
+Lightweight, asynchronous wrapper for zxcvbn.  asdfgh is about 900 bytes zipped, it will only load zxcvbn (~200kb) when it's actually used.
 
-Made for use in a browser either directly, or via a Node-style bundler such as Browserify or Webpack.
+**Made for use in a browser either directly, or via a Node-style bundler such as Browserify or Webpack.**
 
 ## Installation
 
