@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous" />
+
+  <title>Runbeck Developer Authorization Tool</title>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <h1>Developer Authorization</h1>
+    <hr />
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="sub">Passphrase to Check</label>
+          <input type="text" class="form-control  form-control-sm" id="passphrase" placeholder="Enter Passphrase" />
+        </div>
+        <button id="test" type="button" class="btn btn-primary">Check</button>
+      </div>
+      <div class="col-sm-8">
+        <pre><code id="output"></code></pre>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.polyfill.io/v2/polyfill.js?features=es5,json,es6,es2015,es2016,es2017,es2018,es2018,fetch" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/node-uuid/1.4.8/uuid.min.js" integrity="sha256-h7PiJxtxsf7+VkAGN6N+8/0qZrhK7oYJc/pguDnYJi4="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.10/lodash.min.js" integrity="sha256-VKITM616rVzV+MI3kZMNUDoY5uTsuSl1ZvEeZhNoJVk="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.5.2/qs.min.js" integrity="sha256-PAh7ctqFfsWrGgffrTaAUhCk/w+RZsdqT4FWRR/h48Y="
+    crossorigin="anonymous"></script>
+  <script src="../index.js"></script>
+  <script>
+    $('#test').click(function(){
+      $('#output').text('loading...');
+      asdfgh($('#passphrase').val()).then(function(result){
+        $('#output').text(JSON.stringify(result, null, 4));
+      }, function(error) {
+        console.error(error);
+        $('output').text(JSON.stringify(Object.assign(error, {message: error.message}), null, 4));
+      })
+    })
+  </script>
+</body>
+
+</html>
