@@ -1,3 +1,5 @@
+(function(){
+
 var defaultUrl =
   "https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js";
 var defaultIntegrity = "sha256-Znf8FdJF85f1LV0JmPOob5qudSrns8pLPZ6qkd/+F0o=";
@@ -52,16 +54,26 @@ function loadLibrary() {
   }));
 }
 
-module.exports = function(password, user_inputs) {
+var asdfgh = function(password, user_inputs) {
   return loadLibrary().then(function(zxcvbn) {
     return zxcvbn(password, user_inputs);
   });
 };
 
-module.exports.setDefaults(url, integrity, timeout) {
+asdfgh.setDefaults(url, integrity, timeout) {
   loadUrl = url;
   loadIntegrity = integrity;
   if (!isNaN(timeout) && timeout > 0) {
     loadTimeout = timeout;
   }
 }
+
+if (module && module.exports) {
+  module.exports = asdfgh;
+} else if (window) {
+  window.asdfgh = asdfgh;
+} else {
+  throw new Error("asdfgh: Not in a Node/Browserify/Webpack or browser environment.");
+}
+
+}())
